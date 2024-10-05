@@ -6,7 +6,6 @@ import CometsData from '../../../data/necs_.json';
 import { useEffect } from 'react';
 import { keplerSolve } from '@/lib/utils/math';
 import { Vector3 } from 'three';
-import { trueAnom } from '@/lib/utils/math';
 import { useState } from 'react';
 import { degToRad } from 'three/src/math/MathUtils.js';
 import { useMemo } from 'react';
@@ -15,6 +14,7 @@ import { Orbit } from './Orbit';
 import { Object } from './Object';
 import { computeOrbitPoints } from '@/lib/utils/compute-orbit-points';
 import { orbitEquationForOnePoint } from '@/lib/utils/orbit-equation-for-one-point';
+import { trueAnom } from '@/lib/utils/math';
 
 const SmallCelestialObject = () => {
   const [
@@ -72,7 +72,7 @@ const SmallCelestialObject = () => {
     const meanAnomalyAtTargetDate =
       selectedObjectData.ma + effectiveMeanMotion * daysSinceEpoch;
     const E = -keplerSolve(selectedObjectData.e, meanAnomalyAtTargetDate, 5);
-    const θ = degToRad(TrueAnom(selectedObjectData.e, E, 5));
+    const θ = degToRad(trueAnom(selectedObjectData.e, E, 5));
 
     const [x, y, z] = orbitEquationForOnePoint(
       selectedObjectData.a,
