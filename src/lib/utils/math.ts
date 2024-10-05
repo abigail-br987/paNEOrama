@@ -3,7 +3,7 @@ export const roundToDecimals = (num: number, decimals: number) => {
     return Math.round(exp * num) / exp;
 };
 
-export function keplerSolve(e: number, M: number, dp: number): number {
+export function keplerSolve(e: number, M: number, dp: number): number { // orbital propagator stuff
     const pi = Math.PI;
     const K = pi / 180.0;
     const maxIter = 30;
@@ -23,7 +23,7 @@ export function keplerSolve(e: number, M: number, dp: number): number {
     E = E / K;
     return Math.round(E * Math.pow(10, dp)) / Math.pow(10, dp);
   }
-  export const TrueAnom = (ec: number, E: number, dp: number): number => {
+  export const TrueAnom = (ec: number, E: number, dp: number): number => {  // orbital propagator stuff
     const K = Math.PI / 180.0;
     const E_rad = E * K;
     const S = Math.sin(E_rad);
