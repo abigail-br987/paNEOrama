@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Canvas } from "@react-three/fiber";
 import GlobalStore from "@/lib/context/GlobalStore";
+import NaveCanvas from "./NaveCanvas";
 
 // TODO: proper loading screen
 
@@ -20,7 +21,7 @@ const SolarSystem = () => {
                         fov: 45,
                     }}
                 >
-                    {null}
+                    {!start && <NaveCanvas />}
                 </Canvas>
             </div>
         </div>
