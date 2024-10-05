@@ -10,8 +10,10 @@ export interface Store {
     view: "Planets" | "NECs" | "NEAs" | "PHAs";
     currentDate: Date;
     start: boolean;
+    showOrbits: boolean;
     neoSelected: string | null;
     showLabels: boolean;
+    radialLines: boolean;
     selectedPlanet: string | null;
 }
 
@@ -33,6 +35,8 @@ export const defaultStore = (): Store => ({
     showLabels: false,
     selectedPlanet: null,
     neoSelected: null,
+    showOrbits: false,
+    radialLines: false,
     currentDate: new Date(),
     start: false,
 });
