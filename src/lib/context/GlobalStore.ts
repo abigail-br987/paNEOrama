@@ -50,6 +50,9 @@ export interface Store {
     showLabels: boolean;
     radialLines: boolean;
     selectedPlanet: string | null;
+    allFilteredNames: string[];
+    seeAllObjects: boolean;
+
 }
 
 export const storeReducer: Reducer<Store, DeepPartial<Store>> = (
@@ -77,7 +80,9 @@ export const defaultStore = (): Store => ({
     showOrbits: false,
     radialLines: false,
     selectedObjectData: null,
+    seeAllObjects: false,
     currentDate: new Date(),
+    allFilteredNames: [],
     start: false,
 });
 
