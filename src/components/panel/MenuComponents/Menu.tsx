@@ -3,6 +3,7 @@ import GlobalStore from "@/lib/context/GlobalStore";
 import PanelThing from "../SmallComponents/PanelThing";
 import MenuIntro from "./MenuIntro";
 import ConfigOptions from "./ConfigOptions";
+import ControlDate from "./ControlDate";
 const Menu = () => {
   const [
     { view, neoSelected, start },
@@ -22,6 +23,7 @@ const Menu = () => {
             {' '}
             <MenuIntro />
           </div>
+          <ControlDate/>
         </PanelThing>
       </div>
 
