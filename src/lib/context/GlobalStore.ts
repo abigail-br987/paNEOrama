@@ -10,6 +10,7 @@ export interface Store {
     view: "Planets" | "NECs" | "NEAs" | "PHAs";
     currentDate: Date;
     start: boolean;
+    neoSelected: string | null;
 }
 
 export const storeReducer: Reducer<Store, DeepPartial<Store>> = (
@@ -27,6 +28,7 @@ export const defaultStore = (): Store => ({
         isPaused: true,
     },
     view: "Planets",
+    neoSelected: null,
     currentDate: new Date(),
     start: false,
 });
