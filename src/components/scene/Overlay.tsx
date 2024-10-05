@@ -27,9 +27,12 @@ export const Overlay = () => {
 
     const handleClick = () => {
         updateStore({
-            start: true,
+          start: true,
+          showLabels: true,
+          showOrbits: true,
+          radialLines: true,
         });
-    };
+      };
 
     return (
         <Scroll html>
