@@ -2,6 +2,9 @@ import { useContext } from "react";
 import { Canvas } from "@react-three/fiber";
 import GlobalStore from "@/lib/context/GlobalStore";
 import NaveCanvas from "./NaveCanvas";
+import Sun from "./object/Sun";
+import IntroControls from "./Controls";
+import SpaceControls from "./SpaceControls";
 
 // TODO: proper loading screen
 
@@ -22,6 +25,10 @@ const SolarSystem = () => {
                     }}
                 >
                     {!start && <NaveCanvas />}
+
+                    <Sun />
+
+                    {!start ? <IntroControls /> : <SpaceControls />}
                 </Canvas>
             </div>
         </div>
