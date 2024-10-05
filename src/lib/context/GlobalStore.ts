@@ -11,6 +11,7 @@ export interface Store {
     currentDate: Date;
     start: boolean;
     neoSelected: string | null;
+    showLabels: boolean;
     selectedPlanet: string | null;
 }
 
@@ -29,6 +30,7 @@ export const defaultStore = (): Store => ({
         isPaused: true,
     },
     view: "Planets",
+    showLabels: false,
     selectedPlanet: null,
     neoSelected: null,
     currentDate: new Date(),
