@@ -4,6 +4,7 @@ import GlobalStore, {
     storeReducer,
 } from "./lib/context/GlobalStore";
 import SolarSystem from "./components/scene/SolarSystem";
+import Manual from "./components/scene/Manual";
 
 const App = () => {
     const globalStore = useReducer(storeReducer, defaultStore());
@@ -11,6 +12,7 @@ const App = () => {
     return (
         <GlobalStore.Provider value={globalStore}>
             <SolarSystem />
+            <Manual />
         </GlobalStore.Provider>
     );
 };

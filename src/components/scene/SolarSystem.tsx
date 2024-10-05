@@ -3,8 +3,6 @@ import { Canvas } from "@react-three/fiber";
 import GlobalStore from "@/lib/context/GlobalStore";
 import NaveCanvas from "./NaveCanvas";
 import Sun from "./object/Sun";
-import IntroControls from "./Controls";
-import SpaceControls from "./SpaceControls";
 import Light from "./object/Light";
 import Stars from "./object/Stars";
 import Planets from "./object/Planets";
@@ -13,7 +11,7 @@ const SolarSystem = () => {
 
     return (
         <div className="absolute w-screen h-screen">
-            <div className={`w-full h-full absolute`}>
+            <div className="w-full h-full absolute">
                 <Canvas
                     gl={{ antialias: false }}
                     frameloop="demand"
@@ -28,12 +26,9 @@ const SolarSystem = () => {
 
                     <Sun />
 
-                    {!start ? <IntroControls /> : <SpaceControls />}
                     <Light />
                     <Stars number={80000} size={3} />
                     <Planets />
-
-
                 </Canvas>
             </div>
         </div>

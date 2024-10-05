@@ -3,7 +3,8 @@ export const roundToDecimals = (num: number, decimals: number) => {
     return Math.round(exp * num) / exp;
 };
 
-export function keplerSolve(e: number, M: number, dp: number): number { // orbital propagator stuff
+export function keplerSolve(e: number, M: number, dp: number): number {
+    // orbital propagator stuff
     const pi = Math.PI;
     const K = pi / 180.0;
     const maxIter = 30;
@@ -16,20 +17,22 @@ export function keplerSolve(e: number, M: number, dp: number): number { // orbit
     else E = pi;
     F = E - e * Math.sin(m) - m;
     while (Math.abs(F) > delta && i < maxIter) {
-      E = E - F / (1.0 - e * Math.cos(E));
-      F = E - e * Math.sin(E) - m;
-      i = i + 1;
+        E = E - F / (1.0 - e * Math.cos(E));
+        F = E - e * Math.sin(E) - m;
+        i = i + 1;
     }
     E = E / K;
     return Math.round(E * Math.pow(10, dp)) / Math.pow(10, dp);
-  }
-  export const TrueAnom = (ec: number, E: number, dp: number): number => {  // orbital propagator stuff
+}
+export const trueAnom = (ec: number, E: number, dp: number): number => {
+    // orbital propagator stuff
     const K = Math.PI / 180.0;
     const E_rad = E * K;
     const S = Math.sin(E_rad);
     const C = Math.cos(E_rad);
     const fak = Math.sqrt(1.0 - ec * ec);
     const phi = Math.atan2(fak * S, C - ec) / K;
-  
+
     return Math.round(phi * Math.pow(10, dp)) / Math.pow(10, dp);
-  };
+};
+
