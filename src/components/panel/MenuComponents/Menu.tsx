@@ -4,6 +4,7 @@ import PanelThing from "../SmallComponents/PanelThing";
 import MenuIntro from "./MenuIntro";
 import ConfigOptions from "./ConfigOptions";
 import ControlDate from "./ControlDate";
+import InterfaceOptions from "../Personalization/InterfaceOptions";
 const Menu = () => {
   const [
     { view, neoSelected, start },
@@ -20,11 +21,17 @@ const Menu = () => {
       <div className="lg:min-w-72">
         <PanelThing className="px-4 py-3 space-y-1">
           <div className="max-sm:hidden">
-            {' '}
             <MenuIntro />
           </div>
           <ControlDate/>
         </PanelThing>
+      </div>
+
+      <div className="flex space-x-3 self-start flex-grow max-lg:hidden ">
+          <div className="max-sm:hidden ">
+            <InterfaceOptions />
+          </div>
+
       </div>
 
 
