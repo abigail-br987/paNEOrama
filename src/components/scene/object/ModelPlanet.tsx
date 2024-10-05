@@ -5,6 +5,8 @@ import { useState } from 'react';
 import GlobalStore from '@/lib/context/GlobalStore';
 import { AU_TO_KM } from '@/data/planet-data';
 import { computeOrbitPoints } from '@/lib/utils/compute-orbit-points';
+import { Orbit } from './Orbit';
+import { HelpfulLines } from './HelpfulLines';
 import { SCALE_FACTOR_ORBIT } from '@/lib/utils/constants';
 import { useMemo } from 'react';
 import EarthModel from './planets/Earth';
@@ -115,6 +117,7 @@ const ModelPlanet = ({
     [distance, eccentricity, inclination, argumentPeriapsis, ascendingNode]
   );
 
+
   const handleClick = () => {
     onPlanetClick(objectPosition, name);
     updateStore({
@@ -130,8 +133,27 @@ const ModelPlanet = ({
   const PlanetModel = planetModels[name + 'Model'];
 
   console.log(view);
+
   return (
     <>
+      {showOrbits && (
+        <Orbit
+          points={orbitPoints}
+          colored={isHovered}
+          color={isHovered ? ringColor : undefined}
+          transparent={true}
+          opacity={view === 'Planets' ? 1 : 0.1}
+          width={view === 'Planets' ? 2 : 1}
+        />
+      )}
+      {view === 'Planets' && radialLines && (
+        <HelpfulLines
+          points={orbitPoints}
+          colored={isHovered}
+          color={isHovered ? ringColor : undefined}
+        />
+      )}
+
       <group position={objectPosition}>
         {(!start || selectedPlanet !== null) && (
           <PlanetModel
