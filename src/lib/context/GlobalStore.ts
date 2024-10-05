@@ -11,6 +11,10 @@ export interface Store {
     currentDate: Date;
     start: boolean;
     showOrbits: boolean;
+    gridConfig: {
+        gridLength: number | null;
+        gridSpacing: number | null;
+      };
     neoSelected: string | null;
     showLabels: boolean;
     radialLines: boolean;
@@ -33,6 +37,10 @@ export const defaultStore = (): Store => ({
     },
     view: "Planets",
     showLabels: false,
+    gridConfig: {
+        gridLength: null,
+        gridSpacing: null,
+      },
     selectedPlanet: null,
     neoSelected: null,
     showOrbits: false,
