@@ -5,9 +5,9 @@ import NaveCanvas from "./NaveCanvas";
 import Sun from "./object/Sun";
 import IntroControls from "./Controls";
 import SpaceControls from "./SpaceControls";
-
-// TODO: proper loading screen
-
+import Light from "./object/Light";
+import Stars from "./object/Stars";
+import Planets from "./object/Planets";
 const SolarSystem = () => {
     const [{ view, start }] = useContext(GlobalStore);
 
@@ -29,6 +29,11 @@ const SolarSystem = () => {
                     <Sun />
 
                     {!start ? <IntroControls /> : <SpaceControls />}
+                    <Light />
+                    <Stars number={80000} size={3} />
+                    <Planets />
+
+
                 </Canvas>
             </div>
         </div>
