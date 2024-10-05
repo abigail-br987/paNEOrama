@@ -2,6 +2,36 @@ import { createContext, Dispatch, Reducer } from "react";
 import { mergeInto } from "../utils/objects";
 import { DeepPartial } from "../types";
 
+
+interface SelectedObjectData {
+    n: number;
+    epoch: number;
+    full_name: any;
+    spkid: number;
+    diameter: number;
+    H: number;
+    albedo: number;
+    rot_per: number;
+    a: number;
+    e: number;
+    i: number;
+    om: number;
+    w: number;
+    q: number;
+    ad: number;
+    per_y: number;
+    data_arc: number;
+    n_obs_used: number;
+    epoch_mjd: number;
+    ma: number;
+  
+    'Mission Type': string;
+    'Mission Arrival': string;
+    'Mission Name': string;
+    'Mission Launch': string;
+    Status: string;
+  }
+
 export interface Store {
     controls: {
         timeSpeed: number;
@@ -11,6 +41,7 @@ export interface Store {
     currentDate: Date;
     start: boolean;
     showOrbits: boolean;
+    selectedObjectData: SelectedObjectData | null;
     gridConfig: {
         gridLength: number | null;
         gridSpacing: number | null;
@@ -45,6 +76,7 @@ export const defaultStore = (): Store => ({
     neoSelected: null,
     showOrbits: false,
     radialLines: false,
+    selectedObjectData: null,
     currentDate: new Date(),
     start: false,
 });
