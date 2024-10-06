@@ -110,14 +110,10 @@ function CustomAxes({ length = 15 }) {
 }
 
 function OrbitSimulator({ scale = 0.001 }) {
-  const [{}, updateStore] = useContext(GlobalStore);
   const [showPanel, setShowPanel] = useState(false);
   const [parameters, setParameters] = useState(
     orbitalParameters.map((param) => param.value)
   );
-  const handleClose = () => {
-    updateStore({ showOrbitSimulator: false });
-  };
   const orbitPoints = useMemo(() => {
     return computeOrbitPoints(
       parameters[0] * scale,

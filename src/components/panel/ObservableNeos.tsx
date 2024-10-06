@@ -19,14 +19,9 @@ interface Position {
 }
 
 function ObservableNeos() {
-  const [{}, updateStore] = useContext(GlobalStore);
   const [showPanel, setShowPanel] = useState(false);
-  const handleClose = () => {
-    updateStore({ showToObserve: false });
-  };
   const [position, setPosition] = useState<Position | null>(null);
   const [data, setData] = useState(null);
-
   const today = new Date();
   const datetoday = formatDate(today);
 
