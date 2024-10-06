@@ -301,7 +301,7 @@ const ObjectList = () => {
         .filter((name): name is string => typeof name === "string");
       updateStore({ allFilteredNames: filteredNames });
     }
-  }, [objectFullData, seeAllObjects]);
+  }, [objectFullData, seeAllObjects, debouncedFilteredData]);
 
   const options = debouncedFilteredData.map((obj) => ({
     value: obj.full_name,
