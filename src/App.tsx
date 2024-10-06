@@ -1,4 +1,4 @@
-import { useReducer } from "react";
+import { StrictMode, useReducer } from "react";
 import GlobalStore, {
     defaultStore,
     storeReducer,
@@ -12,12 +12,14 @@ const App = () => {
     const globalStore = useReducer(storeReducer, defaultStore());
 
     return (
-        <GlobalStore.Provider value={globalStore}>
-            <Share />
-            <SolarSystem />
-            <Menu />
-            <Manual />
-        </GlobalStore.Provider>
+        <StrictMode>
+            <GlobalStore.Provider value={globalStore}>
+                <Share />
+                <SolarSystem />
+                <Menu />
+                <Manual />
+            </GlobalStore.Provider>
+        </StrictMode>
     );
 };
 
