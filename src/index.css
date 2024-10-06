@@ -14,3 +14,8 @@
         @apply bg-black select-none;
     }
 }
+
+.leaflet-container {
+    @apply h-full w-full -z-10;
+  }
+  
