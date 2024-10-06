@@ -1,8 +1,8 @@
-import { OrbitControls } from '@react-three/drei';
-import { useRef } from 'react';
-import { useThree } from '@react-three/fiber';
-import { useEffect } from 'react';
-import { degToRad } from 'three/src/math/MathUtils.js';
+import { OrbitControls } from "@react-three/drei";
+import { useRef } from "react";
+import { useThree } from "@react-three/fiber";
+import { useEffect } from "react";
+import { degToRad } from "three/src/math/MathUtils.js";
 
 const SpaceControls = () => {
   const controlsRef2 = useRef<any>(null);
@@ -19,20 +19,18 @@ const SpaceControls = () => {
   }, []);
 
   return (
-    <>
-      <OrbitControls
-        ref={controlsRef2}
-        enableZoom={true}
-        minDistance={1000}
-        maxDistance={60000}
-        zoomSpeed={3}
-        enablePan={true}
-        minPolarAngle={degToRad(0)}
-        maxPolarAngle={degToRad(180)}
-        minAzimuthAngle={-Infinity}
-        maxAzimuthAngle={Infinity}
-      />
-    </>
+    <OrbitControls
+      ref={controlsRef2}
+      enableZoom={true}
+      minDistance={1000}
+      maxDistance={60000}
+      zoomSpeed={3}
+      enablePan={true}
+      minPolarAngle={degToRad(0)}
+      maxPolarAngle={degToRad(180)}
+      minAzimuthAngle={-Infinity}
+      maxAzimuthAngle={Infinity}
+    />
   );
 };
 
