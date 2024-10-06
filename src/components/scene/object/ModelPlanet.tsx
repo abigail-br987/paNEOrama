@@ -130,8 +130,6 @@ const ModelPlanet = ({
     // @ts-ignore
     const PlanetModel = planetModels[name + "Model"];
 
-    console.log(view);
-
     return (
         <>
             {showOrbits && (
