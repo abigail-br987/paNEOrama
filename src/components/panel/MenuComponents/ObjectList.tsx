@@ -1,20 +1,20 @@
-import nAsteroidsData from '../../../data/neas_.json';
-import pAsteroidsData from '../../../data/phas_.json';
-import cometsData from '../../../data/necs_.json';
-import accessibleNeas from '../../../data/accessibleneas.json';
-import { useState, useEffect, useContext, ChangeEventHandler } from 'react';
-import GlobalStore from '@/lib/context/GlobalStore';
-import Dropdown from '../SmallComponents/Dropdown';
-import CheckboxOption from '../SmallComponents/CheckboxOption';
-import { useCallback } from 'react';
-import TitleOption2 from '../SmallComponents/TitleOption2';
-import RangeSlider from '../SmallComponents/RangeSlider';
-import { useMemo } from 'react';
-import Select, { SingleValue } from 'react-select';
-import { BsChevronDown } from 'react-icons/bs';
+import nAsteroidsData from "../../../data/neas_.json";
+import pAsteroidsData from "../../../data/phas_.json";
+import cometsData from "../../../data/necs_.json";
+import accessibleNeas from "../../../data/accessibleneas.json";
+import { useState, useEffect, useContext, ChangeEventHandler } from "react";
+import GlobalStore from "@/lib/context/GlobalStore";
+import Dropdown from "../SmallComponents/Dropdown";
+import CheckboxOption from "../SmallComponents/CheckboxOption";
+import { useCallback } from "react";
+import TitleOption2 from "../SmallComponents/TitleOption2";
+import RangeSlider from "../SmallComponents/RangeSlider";
+import { useMemo } from "react";
+import Select, { SingleValue } from "react-select";
+import { BsChevronDown } from "react-icons/bs";
 
 const calculateMinMax = (data: Record<string, unknown>[], key: string) => {
-  const values = data.map(item => item[key] as number);
+  const values = data.map((item) => item[key] as number);
   return {
     min: Math.min(...values),
     max: Math.max(...values),
@@ -24,32 +24,32 @@ const calculateMinMax = (data: Record<string, unknown>[], key: string) => {
 const customStyles = {
   option: (provided: any, state: { isSelected: any }) => ({
     ...provided,
-    backgroundColor: state.isSelected ? '#edf2f7' : 'white',
-    color: 'black',
-    outline: 'none',
-    boxShadow: 'none',
-    '&:hover': {
-      backgroundColor: '#edf2f7',
+    backgroundColor: state.isSelected ? "#edf2f7" : "white",
+    color: "black",
+    outline: "none",
+    boxShadow: "none",
+    "&:hover": {
+      backgroundColor: "#edf2f7",
     },
-    '&:focus': {
-      outline: 'none',
+    "&:focus": {
+      outline: "none",
     },
   }),
   control: (provided: any) => ({
     ...provided,
-    border: '1px solid #d1d5db',
-    boxShadow: 'none',
-    '&:hover': {
-      border: '1px solid #d1d5db',
+    border: "1px solid #d1d5db",
+    boxShadow: "none",
+    "&:hover": {
+      border: "1px solid #d1d5db",
     },
-    '&:focus': {
-      border: '1px solid #d1d5db',
-      boxShadow: 'none',
+    "&:focus": {
+      border: "1px solid #d1d5db",
+      boxShadow: "none",
     },
   }),
   menu: (provided: any) => ({
     ...provided,
-    boxShadow: 'none',
+    boxShadow: "none",
   }),
 };
 
@@ -74,11 +74,11 @@ const ObjectList = () => {
     updateStore({ neoSelected: null });
     const filteredData = () => {
       switch (view) {
-        case 'PHAs':
+        case "PHAs":
           return Object.values(pAsteroidsData);
-        case 'NEAs':
+        case "NEAs":
           return Object.values(nAsteroidsData);
-        case 'NECs':
+        case "NECs":
           return Object.values(cometsData);
         default:
           return [];
@@ -89,36 +89,36 @@ const ObjectList = () => {
   }, [view]);
 
   const semiMajorAxisRange = useMemo(
-    () => calculateMinMax(objectFullData, 'a'),
+    () => calculateMinMax(objectFullData, "a"),
     [objectFullData]
   );
 
   const eccentricityRange = useMemo(
-    () => calculateMinMax(objectFullData, 'e'),
+    () => calculateMinMax(objectFullData, "e"),
     [objectFullData]
   );
   const orbitalPeriodRange = useMemo(
-    () => calculateMinMax(objectFullData, 'per'),
+    () => calculateMinMax(objectFullData, "per"),
     [objectFullData]
   );
   const satellitesRange = useMemo(
-    () => calculateMinMax(objectFullData, 'sats'),
+    () => calculateMinMax(objectFullData, "sats"),
     [objectFullData]
   );
   const albedoRange = useMemo(
-    () => calculateMinMax(objectFullData, 'albedo'),
+    () => calculateMinMax(objectFullData, "albedo"),
     [objectFullData]
   );
   const magnitudeRange = useMemo(
-    () => calculateMinMax(objectFullData, 'M1'),
+    () => calculateMinMax(objectFullData, "M1"),
     [objectFullData]
   );
   const moidRange = useMemo(
-    () => calculateMinMax(objectFullData, 'moid'),
+    () => calculateMinMax(objectFullData, "moid"),
     [objectFullData]
   );
   const diameterRange = useMemo(
-    () => calculateMinMax(objectFullData, 'diameter'),
+    () => calculateMinMax(objectFullData, "diameter"),
     [objectFullData]
   );
 
@@ -158,58 +158,58 @@ const ObjectList = () => {
     setMaxDiameter(diameterRange.max);
   }, [objectFullData]);
 
-  const handleNEATypeChange: ChangeEventHandler<HTMLInputElement> = ev => {
+  const handleNEATypeChange: ChangeEventHandler<HTMLInputElement> = (ev) => {
     const { name, checked } = ev.target;
-    setSelectedNEATypes(prev =>
-      checked ? [...prev, name] : prev.filter(type => type !== name)
+    setSelectedNEATypes((prev) =>
+      checked ? [...prev, name] : prev.filter((type) => type !== name)
     );
   };
 
-  const handleIsAccessible: ChangeEventHandler<HTMLInputElement> = ev => {
+  const handleIsAccessible: ChangeEventHandler<HTMLInputElement> = (ev) => {
     setAccessible(ev.target.checked);
   };
 
-  const handleMissionFilterChange: ChangeEventHandler<
-    HTMLInputElement
-  > = ev => {
+  const handleMissionFilterChange: ChangeEventHandler<HTMLInputElement> = (
+    ev
+  ) => {
     setTargetOfMission(ev.target.checked);
   };
 
   const applyFilters = useCallback(() => {
     const result = objectFullData
-      .filter(object => {
-        if (view !== 'NEAs') return true;
+      .filter((object) => {
+        if (view !== "NEAs") return true;
 
-        return selectedNEATypes.some(type => {
+        return selectedNEATypes.some((type) => {
           switch (type) {
-            case 'Atiras':
-              return object.class === 'IEO';
-            case 'Atens':
-              return object.class === 'ATE';
-            case 'Apollo':
-              return object.class === 'APO';
-            case 'Amors':
-              return object.class === 'AMO';
+            case "Atiras":
+              return object.class === "IEO";
+            case "Atens":
+              return object.class === "ATE";
+            case "Apollo":
+              return object.class === "APO";
+            case "Amors":
+              return object.class === "AMO";
             default:
               return false;
           }
         });
       })
-      .filter(object => {
+      .filter((object) => {
         if (!accessible) return true;
 
         const accessibleNeaKeys = new Set(Object.keys(accessibleNeas));
         return (
           accessibleNeaKeys.size == 0 ||
           Array.from(accessibleNeaKeys).some(
-            neaKey =>
-              typeof object.full_name === 'string' &&
+            (neaKey) =>
+              typeof object.full_name === "string" &&
               object.full_name.includes(neaKey)
           )
         );
       })
-      .filter(object => !targetOfMission || object['Mission Arrival'])
-      .filter(object => {
+      .filter((object) => !targetOfMission || object["Mission Arrival"])
+      .filter((object) => {
         const isInRangeA = Number(object.a) >= minA && Number(object.a) <= maxA;
         const isInRangeE = Number(object.e) >= minE && Number(object.e) <= maxE;
         const isInRangePerY =
@@ -224,8 +224,8 @@ const ObjectList = () => {
           Number(object.diameter) >= minDiameter &&
           Number(object.diameter) <= maxDiameter;
         const isInRangeMag =
-          view === 'NECs'
-            ? Number(object['M1']) >= minMag && Number(object['M1']) <= maxMag
+          view === "NECs"
+            ? Number(object["M1"]) >= minMag && Number(object["M1"]) <= maxMag
             : true;
 
         return (
@@ -240,7 +240,7 @@ const ObjectList = () => {
         );
       });
 
-    console.log(result, 'hola');
+    console.log(result, "hola");
 
     return result;
   }, [
@@ -297,13 +297,13 @@ const ObjectList = () => {
   useEffect(() => {
     if (debouncedFilteredData.length > 1) {
       const filteredNames: string[] = debouncedFilteredData
-        .map(item => item.full_name)
-        .filter((name): name is string => typeof name === 'string');
+        .map((item) => item.full_name)
+        .filter((name): name is string => typeof name === "string");
       updateStore({ allFilteredNames: filteredNames });
     }
   }, [objectFullData, seeAllObjects]);
 
-  const options = debouncedFilteredData.map(obj => ({
+  const options = debouncedFilteredData.map((obj) => ({
     value: obj.full_name,
     label: obj.full_name,
   }));
@@ -336,13 +336,13 @@ const ObjectList = () => {
           }
           options={
             <>
-              {' '}
-              {view === 'NEAs' && (
+              {" "}
+              {view === "NEAs" && (
                 <>
                   <Dropdown
                     name={
                       <>
-                        {' '}
+                        {" "}
                         <TitleOption2> - TYPE OF ORBIT </TitleOption2>
                       </>
                     }
@@ -351,28 +351,28 @@ const ObjectList = () => {
                         <div className="grid grid-cols-1 sm:grid-cols-2 items-center justify-center gap-2 text-xs pb-1">
                           <CheckboxOption
                             name="Atiras"
-                            checked={selectedNEATypes.includes('Atiras')}
+                            checked={selectedNEATypes.includes("Atiras")}
                             onChange={handleNEATypeChange}
                             label="Atiras"
                             tooltipText="Orbits within Earth's orbit (Q < 0.983 au, a < 1.0 au)"
                           />
                           <CheckboxOption
                             name="Atens"
-                            checked={selectedNEATypes.includes('Atens')}
+                            checked={selectedNEATypes.includes("Atens")}
                             onChange={handleNEATypeChange}
                             label="Atens"
                             tooltipText="Earth-crossing with semi-major axes smaller than Earth's (Q < 0.983 au, a < 1.0 au)"
                           />
                           <CheckboxOption
                             name="Apollo"
-                            checked={selectedNEATypes.includes('Apollo')}
+                            checked={selectedNEATypes.includes("Apollo")}
                             onChange={handleNEATypeChange}
                             label="Apollo"
                             tooltipText="Earth-crossing with semi-major axes larger than Earth's (a > 1.0 au, q < 1.017 au)"
                           />
                           <CheckboxOption
                             name="Amors"
-                            checked={selectedNEATypes.includes('Amors')}
+                            checked={selectedNEATypes.includes("Amors")}
                             onChange={handleNEATypeChange}
                             label="Amors"
                             tooltipText="Earth-approaching with orbits between Earth's and Mars' (a > 1.0 au, 1.017 < q < 1.3 au)"
@@ -401,10 +401,16 @@ const ObjectList = () => {
                                   (total dV &lt;=12km/s, stay &gt;=8 days, total
                                   dur &lt;=450 days, launch:2025-2030, OCC == 0)
                                 </p>
-                                <p className="opacity-50 text-xs"> 
-                                  <a href="https://cneos.jpl.nasa.gov/nhats/" target="_blank">
-                                      "Accessible NEAs" from the Near-Earth Object Human Space Flight Accessible Targets Study (NHATS)
-                                    </a> </p>
+                                <p className="opacity-50 text-xs">
+                                  <a
+                                    href="https://cneos.jpl.nasa.gov/nhats/"
+                                    target="_blank"
+                                  >
+                                    "Accessible NEAs" from the Near-Earth Object
+                                    Human Space Flight Accessible Targets Study
+                                    (NHATS)
+                                  </a>
+                                </p>
                               </div>
                             </>
                           }
@@ -452,7 +458,7 @@ const ObjectList = () => {
                       setMaxValue={setMaxAlb}
                     />
 
-                    {view === 'NECs' && (
+                    {view === "NECs" && (
                       <RangeSlider
                         label="Magnitude Range"
                         range={magnitudeRange}
@@ -481,7 +487,7 @@ const ObjectList = () => {
                   </>
                 }
               />
-              {(view === 'NEAs' || view === 'PHAs') && (
+              {(view === "NEAs" || view === "PHAs") && (
                 <Dropdown
                   class="xs"
                   name={<TitleOption2>- SATELLITES</TitleOption2>}
@@ -507,11 +513,24 @@ const ObjectList = () => {
                       name="targetOfMission"
                       checked={targetOfMission}
                       onChange={handleMissionFilterChange}
-                      label="Small-bodies that have been, or will be, the target of selected spacecraft missions"
+                      label={<>
+                        <div className="max-w-sm">
+                          Small-bodies that have been, or will be, the target of
+                          selected spacecraft missions"
+                          <p className="opacity-50 text-xs">
+                            <a
+                              href="https://ssd.jpl.nasa.gov/sb/targets.html"
+                              target="_blank"
+                            >
+                              "Small-Body Targets of Spacecraft Missions"
+                            </a>
+                          </p>
+                        </div>
+                      </>}
                     />
                   </>
                 }
-              />{' '}
+              />{" "}
             </>
           }
         />
