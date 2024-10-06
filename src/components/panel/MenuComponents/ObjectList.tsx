@@ -58,9 +58,13 @@ interface DataProps {
 }
 
 const ObjectList = () => {
-  const [{ view, seeAllObjects }, updateStore] = useContext(GlobalStore);
+  const [{ view, seeAllObjects, neoSelected }, updateStore] =
+    useContext(GlobalStore);
   const [selectedNEATypes, setSelectedNEATypes] = useState<string[]>([
-    'Amors',"Apollo","Atens", "Atiras"
+    "Amors",
+    "Apollo",
+    "Atens",
+    "Atiras",
   ]);
   const [accessible, setAccessible] = useState(false);
   const [targetOfMission, setTargetOfMission] = useState(false);
@@ -272,7 +276,11 @@ const ObjectList = () => {
     label: string | number | null;
   }
 
+  const [selectedOption, setSelectedOption] =
+    useState<SingleValue<Option>>(null);
+
   const handleChange = (selected: SingleValue<Option>) => {
+    setSelectedOption(selected);
     updateStore({
       neoSelected: (selected?.value as string) ?? null,
     });
@@ -305,7 +313,7 @@ const ObjectList = () => {
       <>
         <div className="w-full text-black">
           <Select
-            value={options}
+            value={selectedOption}
             onChange={handleChange}
             options={options}
             styles={customStyles}
@@ -313,8 +321,8 @@ const ObjectList = () => {
           />
         </div>
         <div className="text-xs opacity-50 p-0.5">
-          RESULTS: {debouncedFilteredData.length} (numbered)
-        </div>
+        RESULTS: {debouncedFilteredData.length} {view === "NEAs" ? "(numbered)" : "(numbered & unnumbered)"}
+      </div>
       </>
 
       <div className="max-sm:hidden md:block">
