@@ -25,7 +25,7 @@ const sections = [
         icon: <GiJourney className="inline-block mr-2" />,
     },
     {
-        title: "Time Travel",
+    title: 'Time Travel',
         content:
             "Click the 'Time Travel' button to visualize the solar system in different eras. Adjust the exploration speed according to your preference.",
         icon: <FaRegClock className="inline-block mr-2" />,
