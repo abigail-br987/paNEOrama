@@ -136,8 +136,9 @@ function OrbitSimulator({ scale = 0.001 }) {
 
       <LargePanel medium>
         <CloseButton onClick={handleClose} />
-        <div className="absolute backdrop-blur-sm z-10 rounded-md m-10  p-6 border">
+        <div className="absolute backdrop-blur-sm z-10 rounded-md m-10  p-6 border max-w-lg">
           <TitleOptions>Create your own orbit!</TitleOptions>
+          <p>Orbital Parameters are fun!</p>
           {orbitalParameters.map((param, index) => (
             <div key={param.label}>
               <Dropdown
