@@ -18,10 +18,11 @@ const AddToTransmission = React.memo(() => {
     const updatedList = [...list, selectedObjectData];
     console.log(selectedObjectData, "selected");
     console.log(updatedList, "updatedList");
+    //@ts-ignore
     setList(updatedList);
     updateStore({ favoriteData: updatedList });
   }
-
+    //@ts-ignore
   const isInList = list.some((item) => item.spkid === selectedObjectData.spkid);
 
   return (
