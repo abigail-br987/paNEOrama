@@ -26,14 +26,6 @@ const Menu = () => {
     updateStore,
   ] = useContext(GlobalStore);
 
-  const handleOrbitMechanicsClick = () => {
-    updateStore({ showOrbitSimulator: true });
-  };
-
-  const handleToObserve = () => {
-    updateStore({ showToObserve: true });
-  };
-
   if (!start) {
     return null;
   }
@@ -52,32 +44,20 @@ const Menu = () => {
           </PanelThing>
         </div>
 
-        <div className="flex md:ml-3 space-x-3 self-start flex-grow max-lg:hidden ">
+        <div className="flex md:ml-3 space-x-3 self-start flex-grow max-lg:hidden">
           <div className="max-sm:hidden ">
             <InterfaceOptions />
           </div>
 
           <div className="max-sm:hidden">
-            <PanelThing className="px-2" onClick={handleOrbitMechanicsClick}>
-              <TitleOptions className="cursor-pointer">
-                <span className="inline-flex items-center">
-                  Orbit Creator <BsPencilSquare className="ml-2" />
-                </span>
-              </TitleOptions>
-            </PanelThing>
+            <OrbitSimulator />
           </div>
 
           <div className="max-sm:hidden">
-            <PanelThing className="px-2" onClick={handleToObserve}>
-              <TitleOptions className="cursor-pointer">
-                <span className="inline-flex items-center">
-                  ObservaNEAS <BsFillGeoAltFill className="ml-2" />
-                </span>
-              </TitleOptions>
-            </PanelThing>
+            <ObservableNeos />
           </div>
 
-          <div className="max-sm:hidden  ">
+          <div className="max-sm:hidden">
             {neoSelected && <CloseApproaches />}
           </div>
         </div>
@@ -103,8 +83,6 @@ const Menu = () => {
         </div>
       </div>
 
-      {showOrbitSimulator && <OrbitSimulator />}
-      {showToObserve && <ObservableNeos />}
     </div>
   );
 };
