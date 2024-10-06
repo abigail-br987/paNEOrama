@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { JSXElementConstructor, Key, ReactElement, ReactNode, ReactPortal, useState } from "react";
 import PanelThing from "../SmallComponents/PanelThing";
 import LargePanel from "../SmallComponents/LargePanel";
 import CloseButton from "../SmallComponents/CloseButton";
@@ -26,7 +26,7 @@ function PrepareTransmission() {
             <div className="flex flex-col relative h-full w-full bg-black rounded-lg text-white p-3">
               <TitleOptions>Your Favorite Objects:</TitleOptions>
               <div className="flex flex-col">
-                {favoriteData.map((item) => (
+                {favoriteData.map((item: { spkid: Key | null | undefined; full_name: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | null | undefined; }) => (
                   <div key={item.spkid} className="py-1">
                     {item.full_name}
                   </div>

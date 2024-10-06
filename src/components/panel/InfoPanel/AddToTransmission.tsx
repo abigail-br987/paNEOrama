@@ -20,7 +20,7 @@ function AddToTransmission() {
     const updatedList = [...list, selectedObjectData];
     console.log(selectedObjectData, "selected");
     console.log(updatedList, "updatedList")
-
+      //@ts-ignore
     setList(updatedList);
     updateStore({ favoriteData: updatedList });
 }

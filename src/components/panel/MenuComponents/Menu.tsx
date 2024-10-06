@@ -8,22 +8,20 @@ import ObjectInfo from "../InfoPanel/ObjectInfo";
 import CloseApproaches from "../CloseApproaches";
 import InterfaceOptions from "../Personalization/InterfaceOptions";
 import OrbitSimulator from "../OrbitSimulator";
-import LargePanel from "../SmallComponents/LargePanel";
 import PanelThing from "../SmallComponents/PanelThing";
 import ObservableNeos from "../ObservableNeos";
 import PlanetInfo from "../InfoPanel/PlanetInfo";
-import TitleOptions from "../SmallComponents/TitleOption";
 import SeeAllObjects from "./SeeAllObjects";
 import ViewInfo from "../InfoPanel/ViewInfo";
 import PrepareTransmission from "./PrepareTransmission";
-import { BsFillGeoAltFill, BsPencilSquare } from "react-icons/bs";
 import Share from "./Share";
 import AddToTransmission from "../InfoPanel/AddToTransmission";
 import Manual from "./Manual";
+
 const Menu = () => {
   const [
-    { view, showOrbitSimulator, neoSelected, showToObserve, start },
-    updateStore,
+    { view, neoSelected, start },
+    ,
   ] = useContext(GlobalStore);
 
   if (!start) {
@@ -71,7 +69,6 @@ const Menu = () => {
             {!neoSelected && <ViewInfo view={view} />}
           </div>
         </div>
-
 
         <div className="absolute bottom-5 right-5 space-x-3 flex">
           <Manual />
