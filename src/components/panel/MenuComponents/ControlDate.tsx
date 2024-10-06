@@ -97,11 +97,11 @@ const ControlDate = () => {
                     id="date-input"
                     name="date-input"
                     value=""
-                    onFocus={(e) => e.target.showPicker()}
+                    onClick={(e) => e.currentTarget.showPicker()}
                     onChange={handleDateInputChange}
                     className="absolute opacity-0 w-full h-full cursor-pointer"
                 />
-                <label>
+                <label htmlFor="date-input">
                     <BsCalendar3 className="inline float-right mt-0.5" />{" "}
                     {formatLongDate(date)}
                 </label>
