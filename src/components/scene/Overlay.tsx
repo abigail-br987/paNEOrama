@@ -5,6 +5,7 @@ import { HTMLProps, useContext } from "react";
 import GlobalStore from "@/lib/context/GlobalStore";
 import { Md3dRotation } from "react-icons/md";
 import classNames from "classnames";
+const newsletter= "https://neo.ssa.esa.int/documents/20126/419169/Newsletter+October+2024.pdf/658f0eef-bc7b-d0e8-b966-7b5c0e140a90?version=1.1&t=1728055271916&download=true"
 
 const ConfirmButton = ({
   className,
@@ -43,7 +44,7 @@ export const Overlay = () => {
         <a
           target="_blank"
           className="underline"
-          href="https://sketchfab.com/3d-models/3december-2023-window-view-xxxxxx"
+          href="https://sketchfab.com/3d-models/3december-2023-window-view-f32cfdee431e48fa87440f4e7773f4be"
         >
            Available on Sketchfab
         </a>
@@ -65,53 +66,48 @@ export const Overlay = () => {
       </div>
 
       <div className="hidden w-screen md:flex min-h-screen flex-col lg:flex-row p-10 justify-evenly items-center space-y-6 lg:space-x-6 lg:space-y-0">
-        <PanelThing className="hidden px-8 py-6 lg:block max-w-4xl font-mono text-xs leading-normal">
+      <PanelThing className="hidden px-8 py-6 lg:block max-w-4xl font-mono text-xs leading-normal">
           <h1 className="font-semibold font-sans mb-4 text-xl">
             Transmission from a fellow galactic explorer
           </h1>
           <p className="my-4">Greetings, agent!</p>
           <p>
             I come from far beyond this star, and I must admit there is much I
-            do not yet understand about this small system, especially those
-            beings that call themselves 'humans', yes? They show an unusual
-            interest in the stars and the outer space that surrounds them.
-            Curious!
+            do not yet understand about this small system. Recently, my civilization came across a   
+            <a href={newsletter} className='text-orange-400'> Newsletter from the European Space Agency (ESA)</a> You can view it
+            <a href={newsletter} className='text-orange-400'> here</a>
           </p>
           <p className="my-4">
             Indeed, the Solar System harbors secrets I have yet to grasp. My
-            intention is most peaceful, of course.
+            intention is peaceful!
           </p>
           <p className="my-4">
             Here are some of the celestial bodies you may find.
           </p>
           <ul className="my-4 list-disc list-inside space-y-3">
             <li>
-              <span className="text-orange-400 font-semibold">Planets:</span>{" "}
-              What makes these planets so special to humans? How do they
-              influence the lifeforms on Earth? Our research suggests that they
-              affect more than just gravity...
+              <span className="text-orange-400 font-semibold">Planets:</span>{' '}
+              What makes these planets so special? Our research suggests that they
+              may be good tourist attractions...
             </li>
             <li>
               <span className="text-orange-400 font-semibold">
                 Near-Earth Objects (NEOs):
-              </span>{" "}
-              There are countless rocks and fragments that drift perilously
-              close to this blue planet. Some of them pose a great threat to the
-              fragile lifeforms. Are we to intervene, or simply observe?
+              </span>
+               I read in the newspaper that there are thousands of asteroids and 122 comets!
+              They are rocks and fragments that drift
+              close to this blue planet. ¿What is the difference between asteroids and comets?
             </li>
             <li>
               <span className="text-orange-400 font-semibold">
                 Potentially Hazardous Asteroids (PHAs):
-              </span>{" "}
-              A collision with one of these asteroids could spell disaster. Are
-              humans even aware of the dangers that could befall them, or is it
-              up to us to monitor these rogue objects?
+              </span>
+              A collision with one of these asteroids could spell disaster!!! The newspaper says (363027)1998ST27 will be really close to Earth on October 12 of 2024. I wonder what its specific properties are.
             </li>
             <li>
-              <span className="text-orange-400 font-semibold">Comets:</span>{" "}
+              <span className="text-orange-400 font-semibold">Comets:</span>{' '}
               Frozen travelers from the far reaches of this system, comets carry
-              ancient stories, perhaps even knowledge lost to time. Shall we
-              decode the messages hidden within their icy tails?
+              ancient stories, perhaps even knowledge lost to time.
             </li>
           </ul>
           <p className="my-4">
