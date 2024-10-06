@@ -19,15 +19,8 @@ import AddToTransmission from "../InfoPanel/AddToTransmission";
 import Manual from "./Manual";
 
 const Menu = () => {
-  const [
-    { view, neoSelected, start },
-    ,
-  ] = useContext(GlobalStore);
-
-  if (!start) {
-    return null;
-  }
-
+  const [{ view, neoSelected, start },] = useContext(GlobalStore);
+  if (!start) return null;
   return (
     <div className="w-screen h-screen text-white overflow-auto max-sm:text-xs">
       <div className="p-2 md:p-5 flex flex-wrap justify-between w-full h-full">
@@ -41,25 +34,20 @@ const Menu = () => {
             {view !== "Planets" && <ObjectList />}
           </PanelThing>
         </div>
-
         <div className="flex md:ml-3 space-x-3 self-start flex-grow max-lg:hidden">
           <div className="max-sm:hidden ">
             <InterfaceOptions />
           </div>
-
           <div className="max-sm:hidden">
             <OrbitSimulator />
           </div>
-
           <div className="max-sm:hidden">
             <ObservableNeos />
           </div>
-
           <div className="max-sm:hidden">
             {neoSelected && <CloseApproaches />}
           </div>
         </div>
-
         <div className="max-w-md">
           <ConfigOptions />
           <div className="max-sm:hidden mt-3 space-y-3">
@@ -69,17 +57,14 @@ const Menu = () => {
             {!neoSelected && <ViewInfo view={view} />}
           </div>
         </div>
-
         <div className="absolute bottom-5 right-5 space-x-3 flex">
           <Manual />
           <Share />
         </div>
-
         <div className="absolute bottom-5 align-bottom">
           <PrepareTransmission />
         </div>
       </div>
-
     </div>
   );
 };
