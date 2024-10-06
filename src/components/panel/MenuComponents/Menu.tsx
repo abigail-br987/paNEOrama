@@ -1,23 +1,25 @@
-import ConfigOptions from './ConfigOptions';
-import { useContext } from 'react';
-import GlobalStore from '@/lib/context/GlobalStore';
-import ObjectList from './ObjectList';
-import ControlDate from './ControlDate';
-import MenuIntro from './MenuIntro';
-import ObjectInfo from '../InfoPanel/ObjectInfo';
-import CloseApproaches from '../CloseApproaches';
-import InterfaceOptions from '../Personalization/InterfaceOptions';
-import OrbitSimulator from '../OrbitSimulator';
-import LargePanel from '../SmallComponents/LargePanel';
-import PanelThing from '../SmallComponents/PanelThing';
-import ObservableNeos from '../ObservableNeos';
-import PlanetInfo from '../InfoPanel/PlanetInfo';
-import TitleOptions from '../SmallComponents/TitleOption';
-import SeeAllObjects from './SeeAllObjects';
-import ViewInfo from '../InfoPanel/ViewInfo';
-import { BsFillGeoAltFill, BsPencilSquare } from 'react-icons/bs';
-import Share from '@/components/scene/Share';
-import Manual from '@/components/scene/Manual';
+import ConfigOptions from "./ConfigOptions";
+import { useContext } from "react";
+import GlobalStore from "@/lib/context/GlobalStore";
+import ObjectList from "./ObjectList";
+import ControlDate from "./ControlDate";
+import MenuIntro from "./MenuIntro";
+import ObjectInfo from "../InfoPanel/ObjectInfo";
+import CloseApproaches from "../CloseApproaches";
+import InterfaceOptions from "../Personalization/InterfaceOptions";
+import OrbitSimulator from "../OrbitSimulator";
+import LargePanel from "../SmallComponents/LargePanel";
+import PanelThing from "../SmallComponents/PanelThing";
+import ObservableNeos from "../ObservableNeos";
+import PlanetInfo from "../InfoPanel/PlanetInfo";
+import TitleOptions from "../SmallComponents/TitleOption";
+import SeeAllObjects from "./SeeAllObjects";
+import ViewInfo from "../InfoPanel/ViewInfo";
+import PrepareTransmission from "./PrepareTransmission";
+import { BsFillGeoAltFill, BsPencilSquare } from "react-icons/bs";
+import Share from "./Share";
+import AddToTransmission from "../InfoPanel/AddToTransmission";
+import Manual from "./Manual";
 const Menu = () => {
   const [
     { view, showOrbitSimulator, neoSelected, showToObserve, start },
@@ -38,19 +40,19 @@ const Menu = () => {
 
   return (
     <div className="w-screen h-screen text-white overflow-auto max-sm:text-xs">
-      <div className="p-2 md:p-5 flex flex-wrap space-x-3 justify-between w-full">
+      <div className="p-2 md:p-5 flex flex-wrap justify-between w-full h-full">
         <div className="lg:min-w-72">
           <PanelThing className="px-4 py-3 space-y-1">
             <div className="max-sm:hidden">
               <MenuIntro />
             </div>
             <ControlDate />
-            {view !== 'Planets' && <SeeAllObjects view={view} />}
-            {view !== 'Planets' && <ObjectList />}
+            {view !== "Planets" && <SeeAllObjects view={view} />}
+            {view !== "Planets" && <ObjectList />}
           </PanelThing>
         </div>
 
-        <div className="flex space-x-3 self-start flex-grow max-lg:hidden ">
+        <div className="flex md:ml-3 space-x-3 self-start flex-grow max-lg:hidden ">
           <div className="max-sm:hidden ">
             <InterfaceOptions />
           </div>
@@ -82,25 +84,27 @@ const Menu = () => {
 
         <div className="max-w-md">
           <ConfigOptions />
-          <div className="max-sm:hidden  ">
-            {view !== 'Planets' && neoSelected && <ObjectInfo />}
-            {view === 'Planets' && <PlanetInfo />}
+          <div className="max-sm:hidden mt-3 space-y-3">
+            {view !== "Planets" && neoSelected && <AddToTransmission />}
+            {view !== "Planets" && neoSelected && <ObjectInfo />}
+            {view === "Planets" && <PlanetInfo />}
             {!neoSelected && <ViewInfo view={view} />}
           </div>
         </div>
 
-        <div className="absolute bottom-5 right-5 flex space-x-3">
+
+        <div className="absolute bottom-5 right-5 space-x-3 flex">
           <Manual />
           <Share />
         </div>
+
+        <div className="absolute bottom-5 align-bottom">
+          <PrepareTransmission />
+        </div>
       </div>
 
-      {showOrbitSimulator && (
-          <OrbitSimulator />
-      )}
-      {showToObserve && (
-          <ObservableNeos />
-      )}
+      {showOrbitSimulator && <OrbitSimulator />}
+      {showToObserve && <ObservableNeos />}
     </div>
   );
 };
