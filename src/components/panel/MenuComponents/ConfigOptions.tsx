@@ -20,7 +20,7 @@ function ConfigOptions() {
     "Potentially Hazardous Asteroids",
   ];
 
-  const handleButtonClick = useCallback(
+  const handleButtonClick = 
     (option: Store["view"]) => {
       updateStore({
         view: option,
@@ -30,9 +30,7 @@ function ConfigOptions() {
         showOrbits: true,
         radialLines: true,
       });
-    },
-    [updateStore]
-  );
+    };
 
   return (
     <div className="grid grid-cols-2 gap-2">

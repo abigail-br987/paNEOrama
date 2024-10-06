@@ -148,7 +148,7 @@ function ObjectInfo() {
   ];
 
   return (
-    <PanelThing className="mt-5">
+    <PanelThing>
       <div className="p-5">
         <h2 className="text-2xl font-extrabold uppercase text-center">
           {neoSelected}
