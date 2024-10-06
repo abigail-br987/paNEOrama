@@ -91,7 +91,7 @@ function CloseApproaches() {
       <PanelThing>
         <Dropdown
           name={
-            <TitleOptions>
+            <TitleOptions className='px-2'>
               <span className="inline-flex items-center">Close Approaches</span>
             </TitleOptions>
           }
