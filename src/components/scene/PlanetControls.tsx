@@ -1,12 +1,12 @@
-import { useContext } from 'react';
-import { useRef } from 'react';
-import { useThree } from '@react-three/fiber';
-import { Vector3 } from 'three';
-import { useState } from 'react';
-import { useEffect } from 'react';
-import GlobalStore from '@/lib/context/GlobalStore';
-import { useFrame } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
+import { useContext } from "react";
+import { useRef } from "react";
+import { useThree } from "@react-three/fiber";
+import { Vector3 } from "three";
+import { useState } from "react";
+import { useEffect } from "react";
+import GlobalStore from "@/lib/context/GlobalStore";
+import { useFrame } from "@react-three/fiber";
+import { OrbitControls } from "@react-three/drei";
 
 const CAMERA_DISTANCES: Record<string, number> = {
   Mercury: 45,
@@ -35,18 +35,14 @@ const PlanetControls = ({ positionOfClickedPlanet }: Props) => {
   const [{ selectedPlanet }, updateStore] = useContext(GlobalStore);
   const defaultOrbitTarget = new Vector3(0, 0, 0);
   const initialCameraDistance = 80000;
-  const targetPosition = selectedPlanet
-    ? positionOfClickedPlanet &&
-      positionOfClickedPlanet.x !== 0 &&
-      positionOfClickedPlanet.y !== 0 &&
-      positionOfClickedPlanet.z !== 0
-      ? new Vector3(
-          positionOfClickedPlanet.x,
-          positionOfClickedPlanet.y,
-          positionOfClickedPlanet.z
-        )
-      : defaultOrbitTarget
-    : defaultOrbitTarget;
+  const targetPosition =
+    selectedPlanet &&
+    positionOfClickedPlanet &&
+    positionOfClickedPlanet.x !== 0 &&
+    positionOfClickedPlanet.y !== 0 &&
+    positionOfClickedPlanet.z !== 0
+      ? positionOfClickedPlanet.clone()
+      : defaultOrbitTarget;
 
   const cameraDistance = selectedPlanet
     ? getCameraDistance(selectedPlanet)
@@ -85,20 +81,20 @@ const PlanetControls = ({ positionOfClickedPlanet }: Props) => {
     camera.position.set(
       newCameraPosition.x,
       newCameraPosition.y,
-      newCameraPosition.z
+      newCameraPosition.z,
     );
 
     camera.lookAt(targetPosition);
   }, [targetPosition, camera, cameraDistance, positionOfClickedPlanet]);
 
-  useFrame((_, delta) => {
+  useFrame(({ camera }, delta) => {
     controlsRef.current?.update();
 
     if (selectedPlanet) {
-      setRotationAngle(prevAngle => prevAngle + delta * 0.2);
+      setRotationAngle((prevAngle) => prevAngle + delta * 0.2);
       const x = targetPosition.x + cameraDistance * Math.cos(rotationAngle);
       const z = targetPosition.z + cameraDistance * Math.sin(rotationAngle);
-      camera.position.set(x, targetPosition.y + 100, z);
+      camera.position.set(x, targetPosition.y + 420, z);
       camera.lookAt(targetPosition);
     }
   });
