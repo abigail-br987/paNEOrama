@@ -321,8 +321,9 @@ const ObjectList = () => {
           />
         </div>
         <div className="text-xs opacity-50 p-0.5">
-        RESULTS: {debouncedFilteredData.length} {view === "NEAs" ? "(numbered)" : "(numbered & unnumbered)"}
-      </div>
+          RESULTS: {debouncedFilteredData.length}{" "}
+          {view === "NEAs" ? "(numbered)" : "(numbered & unnumbered)"}
+        </div>
       </>
 
       <div className="max-sm:hidden md:block">
@@ -390,8 +391,23 @@ const ObjectList = () => {
                           name="is accessible"
                           checked={accessible}
                           onChange={handleIsAccessible}
-                          label="NEAs that might be accessible by future human space flight
-                  missions"
+                          label={
+                            <>
+                              <div className="max-w-sm">
+                                NEAs that might be accessible by future human
+                                space flight missions
+                                <p className="opacity-50 text-xs">
+                                  {" "}
+                                  (total dV &lt;=12km/s, stay &gt;=8 days, total
+                                  dur &lt;=450 days, launch:2025-2030, OCC == 0)
+                                </p>
+                                <p className="opacity-50 text-xs"> 
+                                  <a href="https://cneos.jpl.nasa.gov/nhats/" target="_blank">
+                                      "Accessible NEAs" from the Near-Earth Object Human Space Flight Accessible Targets Study (NHATS)
+                                    </a> </p>
+                              </div>
+                            </>
+                          }
                         />
                       </>
                     }
