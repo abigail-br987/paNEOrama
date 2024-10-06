@@ -54,6 +54,7 @@ export interface Store {
     showOrbitSimulator: boolean;
     showToObserve: boolean;
     seeAllObjects: boolean;
+    favoriteData: any;
 
 }
 
@@ -88,6 +89,7 @@ export const defaultStore = (): Store => ({
     showOrbitSimulator: false,
     allFilteredNames: [],
     start: false,
+    favoriteData: [],
 });
 
 const GlobalStore = createContext<[Store, Dispatch<DeepPartial<Store>>]>([
