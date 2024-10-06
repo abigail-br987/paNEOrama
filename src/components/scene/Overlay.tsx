@@ -44,7 +44,7 @@ export const Overlay = () => {
         <a
           target="_blank"
           className="underline"
-          href="https://sketchfab.com/3d-models/3december-2023-window-view-xxxxxx"
+          href="https://sketchfab.com/3d-models/3december-2023-window-view-f32cfdee431e48fa87440f4e7773f4be"
         >
            Available on Sketchfab
         </a>
