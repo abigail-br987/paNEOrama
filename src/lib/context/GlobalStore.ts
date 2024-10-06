@@ -51,6 +51,8 @@ export interface Store {
     radialLines: boolean;
     selectedPlanet: string | null;
     allFilteredNames: string[];
+    showOrbitSimulator: boolean;
+    showToObserve: boolean;
     seeAllObjects: boolean;
 
 }
@@ -82,6 +84,8 @@ export const defaultStore = (): Store => ({
     selectedObjectData: null,
     seeAllObjects: false,
     currentDate: new Date(),
+    showToObserve: false,
+    showOrbitSimulator: false,
     allFilteredNames: [],
     start: false,
 });
