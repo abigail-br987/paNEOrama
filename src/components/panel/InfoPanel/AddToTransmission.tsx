@@ -3,42 +3,35 @@ import TitleOptions from "../SmallComponents/TitleOption";
 import { IoMdAddCircle } from "react-icons/io";
 import GlobalStore from "@/lib/context/GlobalStore";
 import { useContext } from "react";
-import { useState } from "react";
-import React from "react";
+import classNames from "classnames";
 
-const AddToTransmission = React.memo(() => {
-  const [{ selectedObjectData, favoriteData }, updateStore] =
-    useContext(GlobalStore);
-  const [list, setList] = useState<[]>([]);
+const AddToTransmission = () => {
+    const [{ selectedObjectData, favoriteData }, updateStore] =
+        useContext(GlobalStore);
 
-  function addThings() {
-    console.log("addThings called");
-    console.log(selectedObjectData, "before addThings");
-    console.log(list, "current list"); 
-    const updatedList = [...list, selectedObjectData];
-    console.log(selectedObjectData, "selected");
-    console.log(updatedList, "updatedList");
-    //@ts-ignore
-    setList(updatedList);
-    updateStore({ favoriteData: updatedList });
-  }
-    //@ts-ignore
-  const isInList = list.some((item) => item.spkid === selectedObjectData.spkid);
+    const addThings = () => {
+        updateStore(({ favoriteData }) => ({
+            favoriteData: [...favoriteData, selectedObjectData],
+        }));
+    };
 
-  return (
-    <PanelThing className="cursor-pointer px-3 self-end">
-      <TitleOptions>
-        <button
-          className={`${isInList ? "opacity-50 cursor-not-allowed" : ""}`}
-          onClick={addThings}
-          disabled={isInList}
-        >
-          <IoMdAddCircle className="text-md inline-block" /> {" "}
-          Add To Transmission
-        </button>
-      </TitleOptions>
-    </PanelThing>
-  );
-});
+    const isInList = favoriteData.some(
+        (item) => item.spkid === selectedObjectData?.spkid,
+    );
+
+    return (
+        <PanelThing className="cursor-pointer px-3 self-end">
+            <TitleOptions>
+                <button
+                    className={classNames(isInList && "opacity-50 cursor-not-allowed")}
+                    onClick={addThings}
+                    disabled={isInList}
+                >
+                    <IoMdAddCircle className="text-md inline-block" /> Add To Transmission
+                </button>
+            </TitleOptions>
+        </PanelThing>
+    );
+};
 
 export default AddToTransmission;

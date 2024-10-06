@@ -2,7 +2,6 @@ import { createContext, Dispatch, Reducer } from "react";
 import { mergeInto } from "../utils/objects";
 import { DeepPartial } from "../types";
 
-
 interface SelectedObjectData {
     n: number;
     epoch: number;
@@ -24,13 +23,13 @@ interface SelectedObjectData {
     n_obs_used: number;
     epoch_mjd: number;
     ma: number;
-  
-    'Mission Type': string;
-    'Mission Arrival': string;
-    'Mission Name': string;
-    'Mission Launch': string;
+
+    "Mission Type": string;
+    "Mission Arrival": string;
+    "Mission Name": string;
+    "Mission Launch": string;
     Status: string;
-  }
+}
 
 export interface Store {
     controls: {
@@ -45,21 +44,26 @@ export interface Store {
     gridConfig: {
         gridLength: number | null;
         gridSpacing: number | null;
-      };
+    };
     neoSelected: string | null;
     showLabels: boolean;
     radialLines: boolean;
     selectedPlanet: string | null;
     allFilteredNames: string[];
     seeAllObjects: boolean;
-    favoriteData: any;
-
+    favoriteData: any[];
 }
 
-export const storeReducer: Reducer<Store, DeepPartial<Store>> = (
+export type StoreReducerArgument =
+    | DeepPartial<Store>
+    | ((store: Store) => DeepPartial<Store>);
+
+export const storeReducer: Reducer<Store, StoreReducerArgument> = (
     state,
     changes,
 ) => {
+    if (typeof changes === "function") changes = changes(state);
+
     const newState = structuredClone(state);
     mergeInto(newState, changes);
     return newState;
@@ -75,7 +79,7 @@ export const defaultStore = (): Store => ({
     gridConfig: {
         gridLength: null,
         gridSpacing: null,
-      },
+    },
     selectedPlanet: null,
     neoSelected: null,
     showOrbits: false,
@@ -88,7 +92,7 @@ export const defaultStore = (): Store => ({
     favoriteData: [],
 });
 
-const GlobalStore = createContext<[Store, Dispatch<DeepPartial<Store>>]>([
+const GlobalStore = createContext<[Store, Dispatch<StoreReducerArgument>]>([
     defaultStore(),
     () => { },
 ]);
