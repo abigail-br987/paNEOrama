@@ -1,7 +1,8 @@
 import PanelThing from '../SmallComponents/PanelThing';
 import Dropdown from '../SmallComponents/Dropdown';
 import TitleOption2 from '../SmallComponents/TitleOption2';
-import comet from "/cometsesa.png"
+import comet from "/images/cometsesa.png"
+import { BsChevronDown } from 'react-icons/bs';
 export interface Props {
   view: 'NEAs' | 'NECs' | 'Planets' | 'PHAs';
 }
@@ -57,9 +58,7 @@ const ViewInfo: React.FC<Props> = ({ view }) => {
       <PanelThing className="mt-5">
         <div className="p-3">
           <Dropdown
-            name={
-              <TitleOption2>TRANSMISSION: Ready to see {view}?</TitleOption2>
-            }
+            name={ <TitleOption2> TRANSMISSION: Ready to see {view}? <BsChevronDown className="inline" /></TitleOption2> }
             options={
               <>
                 {imageSrc && (
