@@ -121,7 +121,7 @@ export const Overlay = () => {
           <p className="mt-6">Good luck, agent X'ÿlK-râ'hn.</p>
         </PanelThing>
 
-        <PanelThing className="hidden lg:block px-8 py-6 space-y-5 max-w-lg">
+        <PanelThing className="hidden lg:block px-8 py-6 max-w-lg">
           <p>
             Before we head back, we need to explore and learn all we can about
             the round wonders called "Planets" and the intriguing "Near Earth
@@ -129,7 +129,7 @@ export const Overlay = () => {
           </p>
           <p className="font-bold">Are you excited to begin?</p>
           <button
-            className="px-3 py-2 block mx-auto 
+            className="px-3 py-2 mt-7 block mx-auto 
             animate-bounce 
             text-2xl uppercase
             rounded-lg border bg-orange-600 hover:font-bold transition-all"
