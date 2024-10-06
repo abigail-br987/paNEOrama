@@ -1,21 +1,30 @@
-import { useContext, Suspense } from 'react';
-import { Canvas } from '@react-three/fiber';
-import Sun from './object/Sun';
-import GlobalStore from '@/lib/context/GlobalStore';
-import Stars from './object/Stars';
-import Light from './object/Light';
-import Planets from './object/Planets';
-import Grid from './object/Grid';
-import AllObjects from './object/AllObjects';
-import SmallCelestialObject from './object/SmallCelestialObject';
-import NaveCanvas from './NaveCanvas';
+import { useContext, Suspense } from "react";
+import { Canvas } from "@react-three/fiber";
+import Sun from "./object/Sun";
+import GlobalStore from "@/lib/context/GlobalStore";
+import Stars from "./object/Stars";
+import Light from "./object/Light";
+import Planets from "./object/Planets";
+import Grid from "./object/Grid";
+import AllObjects from "./object/AllObjects";
+import SmallCelestialObject from "./object/SmallCelestialObject";
+import NaveCanvas from "./NaveCanvas";
 
 const SolarSystem = () => {
   const [{ view, seeAllObjects, start }] = useContext(GlobalStore);
 
   return (
     <div className="absolute w-screen h-screen">
-      <Suspense fallback={<div className="flex items-center justify-center w-full h-full text-white text-2xl">Loading...</div>}>
+      <Suspense
+        fallback={
+          <>
+            <div className="flex flex-col items-center text-center justify-center w-full h-full text-white">
+              <p className="text-2xl">Loading...</p>
+              <p className="opacity-50">The Sun Touches Everything</p>
+            </div>
+          </>
+        }
+      >
         <div className={`w-full h-full absolute`}>
           <Canvas
             gl={{ antialias: false }}
@@ -30,8 +39,8 @@ const SolarSystem = () => {
             {start ? (
               <>
                 <Grid />
-                {view !== 'Planets' && <SmallCelestialObject />}
-                {view !== 'Planets' && seeAllObjects && <AllObjects />}
+                {view !== "Planets" && <SmallCelestialObject />}
+                {view !== "Planets" && seeAllObjects && <AllObjects />}
               </>
             ) : (
               <NaveCanvas />

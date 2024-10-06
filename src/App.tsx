@@ -13,9 +13,11 @@ const App = () => {
     <StrictMode>
       <Suspense
         fallback={
-          <div className="flex items-center justify-center w-full h-full text-white text-2xl">
-            Loading...
+          <>
+          <div className="flex flex-col items-center text-center justify-center w-full h-full text-white">
+            <p className="text-2xl">Loading...</p>
           </div>
+        </>
         }
       >
         <GlobalStore.Provider value={globalStore}>
