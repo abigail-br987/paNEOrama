@@ -5,7 +5,7 @@ interface CheckboxOptionProps {
   name: string;
   checked: boolean;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  label: string;
+  label: JSX.Element | string; 
   tooltipText?: string;
 }
 
