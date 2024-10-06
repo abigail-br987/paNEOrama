@@ -1,43 +1,62 @@
-import { JSXElementConstructor, Key, ReactElement, ReactNode, ReactPortal, useState } from "react";
+import { useState } from "react";
 import PanelThing from "../SmallComponents/PanelThing";
-import LargePanel from "../SmallComponents/LargePanel";
 import CloseButton from "../SmallComponents/CloseButton";
 import TitleOptions from "../SmallComponents/TitleOption";
 import { useContext } from "react";
 import GlobalStore from "@/lib/context/GlobalStore";
+import classNames from "classnames";
+import { BsXCircleFill } from "react-icons/bs";
 
 function PrepareTransmission() {
-  const [{ favoriteData }, updateStore] = useContext(GlobalStore);
-  const [showPanel, setShowPanel] = useState(false);
+    const [{ favoriteData }] = useContext(GlobalStore);
+    const [showPanel, setShowPanel] = useState(false);
 
-  return (
-    <>
-      <PanelThing
-        className="cursor-pointer px-3"
-        onClick={() => setShowPanel(true)}
-      >
-        <TitleOptions>Objects for transmission {favoriteData.length}</TitleOptions>
-      </PanelThing>
+    return (
+        <>
+            <PanelThing
+                className="cursor-pointer px-3"
+                onClick={() => setShowPanel(true)}
+            >
+                <TitleOptions>
+                    Objects for transmission {favoriteData.length}
+                </TitleOptions>
+            </PanelThing>
 
-      {showPanel && (
-        <div className="w-screen h-screen fixed top-0 left-0 flex justify-center items-center">
-          <LargePanel>
-            <CloseButton onClick={() => setShowPanel(false)} />
-            <div className="flex flex-col relative h-full w-full bg-black rounded-lg text-white p-3">
-              <TitleOptions>Your Favorite Objects:</TitleOptions>
-              <div className="flex flex-col">
-                {favoriteData.map((item: { spkid: Key | null | undefined; full_name: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | null | undefined; }) => (
-                  <div key={item.spkid} className="py-1">
-                    {item.full_name}
-                  </div>
-                ))}
-              </div>
+            <div
+                className={classNames(
+                    "w-screen h-screen fixed top-0 left-0 bg-black bg-opacity-40 transition-all",
+                    showPanel ? "bg-opacity-40" : "bg-opacity-0 pointer-events-none",
+                )}
+            >
+                <div
+                    className={classNames(
+                        "absolute top-1/2 -translate-y-1/2 z-50 border rounded-lg text-sm backdrop-blur-3xl bg-black bg-opacity-60 transition-all py-2 px-4 w-[36rem] max-w-4xl",
+                        showPanel
+                            ? "-translate-x-1/2 left-1/2"
+                            : "left-0 -translate-x-full",
+                    )}
+                >
+                    <div className="flex justify-between">
+                        <TitleOptions>Your favorite objects</TitleOptions>
+                        <button
+                            className="cursor-pointer text-xl text-white bg-orange-600 p-2 rounded-full"
+                            onClick={() => setShowPanel(false)}
+                        >
+                            <BsXCircleFill />
+                        </button>
+                    </div>
+
+                    <div className="flex flex-col">
+                        {favoriteData.map((item) => (
+                            <div key={item.spkid} className="py-1">
+                                {item.full_name}
+                            </div>
+                        ))}
+                    </div>
+                </div>
             </div>
-          </LargePanel>
-        </div>
-      )}
-    </>
-  );
+        </>
+    );
 }
 
 export default PrepareTransmission;

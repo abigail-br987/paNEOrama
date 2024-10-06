@@ -1,5 +1,4 @@
 import PanelThing from "../SmallComponents/PanelThing";
-import TitleOptions from "../SmallComponents/TitleOption";
 import { IoMdAddCircle } from "react-icons/io";
 import GlobalStore from "@/lib/context/GlobalStore";
 import { useContext } from "react";
@@ -20,16 +19,17 @@ const AddToTransmission = () => {
     );
 
     return (
-        <PanelThing className="cursor-pointer px-3 self-end">
-            <TitleOptions>
-                <button
-                    className={classNames(isInList && "opacity-50 cursor-not-allowed")}
-                    onClick={addThings}
-                    disabled={isInList}
-                >
-                    <IoMdAddCircle className="text-md inline-block" /> Add To Transmission
-                </button>
-            </TitleOptions>
+        <PanelThing>
+            <button
+                className={classNames(
+                    "cursor-pointer text-center w-full py-2 px-4",
+                    isInList && "text-neutral-400",
+                )}
+                onClick={addThings}
+                disabled={isInList}
+            >
+                <IoMdAddCircle className="text-md inline-block" /> Add To Transmission
+            </button>
         </PanelThing>
     );
 };
