@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import Sun from './object/Sun';
 import GlobalStore from '@/lib/context/GlobalStore';
@@ -15,32 +15,34 @@ const SolarSystem = () => {
 
   return (
     <div className="absolute w-screen h-screen">
-            <div className="w-full h-full absolute">
-        <Canvas
-          gl={{ antialias: false }}
-          frameloop="demand"
-          camera={{
-            position: [-1000, 500, 1000],
-            near: 100,
-            far: 100_000,
-            fov: 45,
-          }}
-        >
-          {start ? (
-            <>
-              <Grid />
-              {view !== 'Planets' && <SmallCelestialObject />}
-              {view !== 'Planets' && seeAllObjects && <AllObjects />}
-            </>
-          ) : (
-            <NaveCanvas />
-          )}
-          <Sun />
-          <Planets />
-          <Stars number={80000} size={3} />
-          <Light />
-        </Canvas>
-      </div>
+      <Suspense fallback={<div className="flex items-center justify-center w-full h-full text-white text-2xl">Loading...</div>}>
+        <div className={`w-full h-full absolute`}>
+          <Canvas
+            gl={{ antialias: false }}
+            frameloop="demand"
+            camera={{
+              position: [-1000, 500, 1000],
+              near: 100,
+              far: 100_000,
+              fov: 45,
+            }}
+          >
+            {start ? (
+              <>
+                <Grid />
+                {view !== 'Planets' && <SmallCelestialObject />}
+                {view !== 'Planets' && seeAllObjects && <AllObjects />}
+              </>
+            ) : (
+              <NaveCanvas />
+            )}
+            <Sun />
+            <Planets />
+            <Stars number={80000} size={3} />
+            <Light />
+          </Canvas>
+        </div>
+      </Suspense>
     </div>
   );
 };
