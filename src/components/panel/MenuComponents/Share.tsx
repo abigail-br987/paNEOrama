@@ -1,10 +1,9 @@
 import { useState } from "react";
-import TitleOptions from "../panel/SmallComponents/TitleOption";
-import PanelThing from "../panel/SmallComponents/PanelThing";
-import LargePanel from "../panel/SmallComponents/LargePanel";
+import PanelThing from "../SmallComponents/PanelThing";
+import LargePanel from "../SmallComponents/LargePanel";
 import ss from "/assets/img/ss.jpg";
-import CloseButton from "../panel/SmallComponents/CloseButton";
-
+import CloseButton from "../SmallComponents/CloseButton";
+import TitleOptions from "../SmallComponents/TitleOption";
 const Share = () => {
     const link = "https:";
   const [showPanel, setShowPanel] = useState(false);

@@ -1,7 +1,7 @@
-import PanelThing from "../panel/SmallComponents/PanelThing";
-import TitleOptions from "../panel/SmallComponents/TitleOption";
-import LargePanel from "../panel/SmallComponents/LargePanel";
-import CloseButton from "../panel/SmallComponents/CloseButton";
+import PanelThing from "../SmallComponents/PanelThing";
+import TitleOptions from "../SmallComponents/TitleOption";
+import LargePanel from "../SmallComponents/LargePanel";
+import CloseButton from "../SmallComponents/CloseButton";
 import { useState } from "react";
 import {
   FaRegClock,
