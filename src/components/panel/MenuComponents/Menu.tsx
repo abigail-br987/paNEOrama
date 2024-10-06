@@ -42,7 +42,6 @@ const Menu = () => {
         <div className="lg:min-w-72">
           <PanelThing className="px-4 py-3 space-y-1">
             <div className="max-sm:hidden">
-              {' '}
               <MenuIntro />
             </div>
             <ControlDate />
