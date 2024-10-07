@@ -66,12 +66,12 @@ export const PLANET_DATA: PlanetData[] = [
     color: '#CCAD94',
     forTourists: [
       {
-        name: "Doble Amanecer",
-        link: "https://linktodobleamanecer.com"
+        name: "Double dawn",
+        link: "https://time.com/archive/6630596/astronomy-mercurys-double-dawn/"
       },
       {
-        name: "Cuenca Caloris",
-        link: "https://linktocaloris.com"
+        name: "Caloris Basin:  Caloris is about 950 miles (1,525 kilometers) across and is ringed by mile-high mountains.",
+        link: "https://science.nasa.gov/resource/mercurys-caloris-basin/"
       }
     ],    index: 1,
   },
@@ -105,11 +105,11 @@ export const PLANET_DATA: PlanetData[] = [
     forTourists: [
       {
         name: "Sulfuric Acid Clouds",
-        link: "https://linktodobleamanecer.com"
+        link: "https://www.esa.int/Science_Exploration/Space_Science/Venus_Express/Acid_clouds_and_lightning"
       },
       {
-        name: "Mount Maxwell",
-        link: "https://linktocaloris.com"
+        name: "Mount Maxwell: is a mountain range on the planet Venus, of which Skadi Mons is the highest.",
+        link: "http://www.jpl.nasa.gov/images/pia00149-venus-maxwell-montes-and-cleopatra-crater/"
       }
     ],    
   },
@@ -143,12 +143,12 @@ export const PLANET_DATA: PlanetData[] = [
     index: 3,
     forTourists: [
       {
-        name: "The Amazon Rainforest",
-        link: "https://linktodobleamanecer.com"
+        name: "The Amazon Rainforest: It stretches from the Atlantic Ocean in the east to the tree line of the Andes in the west",
+        link: "https://www.britannica.com/place/Amazon-Rainforest"
       },
       {
-        name: "Mount Everest",
-        link: "https://linktocaloris.com"
+        name: "Mount Everest: The mountain range was formed when a large land mass broke off from Africa roughly 200 million years ago and was carried by plate tectonics",
+        link: "https://www.nasa.gov/image-article/mt-everest/"
       }
     ],
     
@@ -182,12 +182,12 @@ export const PLANET_DATA: PlanetData[] = [
     numberOfMoons:2,
     forTourists: [
       {
-        name: "Mount Olympus",
-        link: "https://linktodobleamanecer.com"
+        name: "Mount Olympus: Mythical home of Zeus, Mount Olympus is the highest peak in Greece, at 9,570 feet (2,917 meters). ",
+        link: "https://www.nasa.gov/image-article/mount-olympus/#:~:text=Mythical%20home%20of%20Zeus%2C%20Mount,means%20%22the%20luminous%20one.%22"
       },
       {
-        name: "Valle Marineris",
-        link: "https://linktocaloris.com"
+        name: "Valles Marineris: The Grand Canyon of Mars",
+        link: "https://www.nasa.gov/image-article/valles-marineris-grand-canyon-of-mars/"
       }
     ],
     
@@ -222,12 +222,12 @@ export const PLANET_DATA: PlanetData[] = [
     index: 5,
     forTourists: [
       {
-        name: "Great Red Spot",
-        link: "https://linktodobleamanecer.com"
+        name: "Jupiter’s Great Red Spot: A Rose By Any Other Name",
+        link: "https://www.nasa.gov/image-article/jupiters-great-red-spot-rose-by-any-other-name/#:~:text=The%20Great%20Red%20Spot%20is,as%20wide%20as%20our%20planet."
       },
       {
-        name: "Ganymede moon",
-        link: "https://linktocaloris.com"
+        name: "Ganymede moon: The largest moon in the solar system, this icy world is the only moon to have its own magnetic field – and the atmospheric auroras that come with that.",
+        link: "https://science.nasa.gov/jupiter/moons/ganymede/"
       }
     ],
     
@@ -259,12 +259,12 @@ export const PLANET_DATA: PlanetData[] = [
     numberOfMoons:145,
     forTourists: [
       {
-        name: "Saturn rings",
-        link: "https://linktodobleamanecer.com"
+        name: "Saturn rings: They are thought to be pieces of comets, asteroids, or shattered moons that broke up before they reached the planet, torn apart by Saturn's powerful gravity",
+        link: "https://science.nasa.gov/saturn/facts/#:~:text=Space%20Science%20Institute-,Rings,other%20materials%20such%20as%20dust."
       },
       {
-        name: "Titan Moon",
-        link: "https://linktocaloris.com"
+        name: "Titan Moon: Saturn’s largest moon, Titan has an earthlike cycle of liquids flowing across its surface. It is the only moon with a thick atmosphere.",
+        link: "https://science.nasa.gov/saturn/moons/titan/"
       }
     ],
 
@@ -300,12 +300,12 @@ export const PLANET_DATA: PlanetData[] = [
     index: 7,
     forTourists: [
       {
-        name: "Uranus Atmosphere",
-        link: "https://linktodobleamanecer.com"
+        name: "Uranus Atmosphere: mostly hydrogen and helium, with a small amount of methane and traces of water and ammonia",
+        link: "https://www.jpl.nasa.gov/education/images/pdf/ss-uranus.pdf"
       },
       {
-        name: "Miranda Moon",
-        link: "https://linktocaloris.com"
+        name: "Miranda Moon: At about 500 km in diameter, it's only one-seventh as large as Earth's moon, a size that seems unlikely to support much tectonic activity.",
+        link: "https://science.nasa.gov/uranus/moons/miranda/"
       }
     ],
   },
@@ -338,12 +338,12 @@ export const PLANET_DATA: PlanetData[] = [
     numberOfMoons:14,
     forTourists: [
       {
-        name: "Triton Moon",
-        link: "https://linktodobleamanecer.com"
+        name: "Triton Moon: Triton is the largest of Neptune's 13 moons. It is unusual because it is the only large moon in our solar system that orbits in the opposite direction of its planet's rotation―a retrograde orbit.",
+        link: "https://science.nasa.gov/neptune/neptune-moons/triton/"
       },
       {
-        name: "Dark Spots",
-        link: "https://linktocaloris.com"
+        name: "Dark Spots: Dark spots are short-lived vortices in Neptune's atmosphere that appear every few years",
+        link: "https://science.nasa.gov/missions/hubble/dark-storm-on-neptune-reverses-direction-possibly-shedding-a-fragment/"
       }
     ],
   },
