@@ -56,7 +56,7 @@ export const Overlay = () => {
           </TitleOptions>
           <p className="mt-3">
             We've finally arrived at the Milky Way, Orion Arm! Isn't the Solar
-            System fascinating?
+            System fascinating?!
           </p>
           <ConfirmButton className="lg:hidden" onClick={handleClick} />
           <p className="animate-bounce mt-6 hidden text-lg lg:block text-orange-400">
