@@ -19,7 +19,7 @@ import AddToTransmission from "../InfoPanel/AddToTransmission";
 import Manual from "./Manual";
 
 const Menu = () => {
-  const [{ view, neoSelected, start },] = useContext(GlobalStore);
+  const [{ view, neoSelected, start, selectedPlanet },] = useContext(GlobalStore);
   if (!start) return null;
   return (
     <div className="w-screen h-screen text-white overflow-auto max-sm:text-xs">
@@ -54,7 +54,7 @@ const Menu = () => {
             {view !== "Planets" && neoSelected && <AddToTransmission />}
             {view !== "Planets" && neoSelected && <ObjectInfo />}
             {view === "Planets" && <PlanetInfo />}
-            {!neoSelected && <ViewInfo view={view} />}
+            {!neoSelected && !selectedPlanet && <ViewInfo view={view} />}
           </div>
         </div>
         <div className="absolute bottom-5 right-5 space-x-3 flex">

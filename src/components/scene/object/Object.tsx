@@ -44,7 +44,7 @@ export const Object = ({
         >
           {labels && (
             <p
-              className={`absolute bottom-5 text-white text-sm rounded-md min-w-24 leading-4 bg-black border border-white text-center -translate-x-1/2 p-2 drop-shadow-md group-hover:drop-shadow-lg transition-all`}
+              className={`absolute bottom-5 text-white text-sm rounded-md min-w-24 leading-4 bg-black bg-opacity-60 backdrop-blur-lg border border-white text-center -translate-x-1/2 p-2 drop-shadow-md group-hover:drop-shadow-lg transition-all`}
             >
               {name}
             </p>

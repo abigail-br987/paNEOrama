@@ -302,7 +302,7 @@ const PlanetInfo = () => {
 
               <button
                 onClick={() => setShowData(true)}
-                className="px-4 py-2 bg-black font-extrabold float-right text-white rounded border"
+                className="px-4 py-2 font-extrabold float-right text-white rounded border"
               >
                 HORIZONS API
               </button>

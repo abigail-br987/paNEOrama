@@ -72,7 +72,6 @@ const ViewInfo: React.FC<Props> = ({ view }) => {
           <Dropdown
             name={
               <TitleOption2>
-                {" "}
                 TRANSMISSION: More about {view}{" "}
                 <BsChevronDown className="inline" />
               </TitleOption2>
