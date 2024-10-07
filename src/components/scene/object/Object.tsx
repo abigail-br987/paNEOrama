@@ -34,7 +34,7 @@ export const Object = ({
     <mesh position={objectPosition} onClick={handleClick}>
       <Html
         center
-        zIndexRange={[1, 1]}
+        zIndexRange={[0, 0]}
         className="group relative cursor-pointer select-none"
       >
         <span
