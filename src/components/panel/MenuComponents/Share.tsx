@@ -5,7 +5,7 @@ import ss from "/assets/img/ss.jpg";
 import CloseButton from "../SmallComponents/CloseButton";
 import TitleOptions from "../SmallComponents/TitleOption";
 const Share = () => {
-    const link = "https:";
+    const link = "https://paneorama.vercel.app/";
   const [showPanel, setShowPanel] = useState(false);
     const [message, setMessage] = useState("");
 
@@ -35,9 +35,9 @@ const Share = () => {
       {showPanel && (
           <div className="w-screen h-screen fixed top-0 left-0 flex justify-center items-center">
 
-        <LargePanel medium={true}>
+        <LargePanel>
           <div
-            className="flex flex-col relative h-full w-full bg-black
+            className="flex flex-col relative h-full w-full
            rounded-lg text-white"
           >
             <div className="z-10 p-8">
@@ -60,11 +60,8 @@ const Share = () => {
               </div>
             </div>
             <CloseButton onClick={() => setShowPanel(false)} />
-            <img
-              src={ss}
-              className="absolute rounded-lg object-cover w-full h-full"
-              alt="Orrery"
-            />
+
+
           </div>
         </LargePanel></div>
       )}
