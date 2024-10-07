@@ -3,6 +3,15 @@ import LocationMarker from "./LocationMarker";
 import { Marker } from "react-leaflet";
 import { TileLayer } from "react-leaflet";
 import { Popup } from "react-leaflet";
+import { Icon } from "leaflet";
+import icon from "/images/icon.png"
+
+const myIcon = new Icon ({
+    iconUrl : icon,
+    iconSize : [35,35],
+    iconAnchor : [22,94],
+    popupAnchor : [-3, -76] 
+})
 
 export interface Props
     extends Pick<MarkerProps, "position" | "draggable" | "eventHandlers"> {
@@ -31,6 +40,7 @@ const ObservableNEASMap = ({
             <LocationMarker setPosition={setPosition} />
             {position && (
                 <Marker
+                icon={myIcon}
                     draggable={draggable}
                     eventHandlers={eventHandlers}
                     position={position}
