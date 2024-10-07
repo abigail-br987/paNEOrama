@@ -21,6 +21,7 @@ interface PlanetData {
   aphelion: number;
   orbitalPeriod: number;
   orbitalVelocity: number;
+  youtube:string;
   orbitalInclination: number;
   orbitalEccentricity: number;
   obliquityToOrbit: number;
@@ -61,6 +62,7 @@ export const PLANET_DATA: PlanetData[] = [
     longitudePerihelion: 77.45645, //deg
     meanLongitude: 252.25084,
     numberOfMoons:0,
+    youtube:"https://www.youtube.com/watch?v=ENwD31EDFjc",
     color: '#CCAD94',
     forTourists: [
       {
@@ -98,6 +100,7 @@ export const PLANET_DATA: PlanetData[] = [
     meanLongitude: 181.97973,
     color: '#CF5D3D',
     index: 2,
+    youtube:"https://youtu.be/o-KMLF-OPtg?si=xzJ0-xyCGWIJMZVb",
     numberOfMoons:0,
     forTourists: [
       {
@@ -127,6 +130,7 @@ export const PLANET_DATA: PlanetData[] = [
     orbitalVelocity: 29.8, // km/s
     orbitalInclination: 0.00005, // degrees
     orbitalEccentricity: 0.01671022,
+    youtube:"https://www.youtube.com/watch?v=8DQeFmWUyd8",
     epoch:2451545.0, // !!!!!!!!!!!
     obliquityToOrbit: 23.4, // degrees
     meanTemperature: 15, // °C
@@ -162,6 +166,7 @@ export const PLANET_DATA: PlanetData[] = [
     perihelion: 206.7 * 10 ** 6, // km
     aphelion: 249.3 * 10 ** 6, // km
     orbitalPeriod: 687.0, // days
+    youtube:"https://www.youtube.com/watch?v=coZ83RM1jbk",
     orbitalVelocity: 24.1, // km/s
     orbitalInclination: 1.8, // degrees
     orbitalEccentricity: 0.094,
@@ -206,6 +211,7 @@ export const PLANET_DATA: PlanetData[] = [
     obliquityToOrbit: 3.1, // degrees
     meanTemperature: -110, // °C
     meanAnomaly:19.65053,
+    youtube:"https://www.youtube.com/watch?v=uj3Lq7Gu94Y",
     longitudeAscendingNode: 100.55615, //deg
     longitudePerihelion: 14.75385, //deg
     meanLongitude: 34.40438,
@@ -240,6 +246,7 @@ export const PLANET_DATA: PlanetData[] = [
     aphelion: 1506.5 * 10 ** 6, // km
     orbitalPeriod: 10747, // days
     orbitalVelocity: 9.7, // km/s
+    youtube:"https://www.youtube.com/watch?v=xn3-0a19sC8",
     orbitalInclination: 2.5, // degrees
     orbitalEccentricity: 0.052,
     obliquityToOrbit: 26.7, // degrees
@@ -284,6 +291,7 @@ export const PLANET_DATA: PlanetData[] = [
     meanTemperature: -195, // °C
     longitudeAscendingNode: 74.22988, //deg
     longitudePerihelion: 170.96424, //deg
+    youtube:"https://www.youtube.com/watch?v=6dcfxVydbQY",
     meanLongitude: 313.23218,
     epoch:2451545.0,
     numberOfMoons:27,
@@ -323,6 +331,7 @@ export const PLANET_DATA: PlanetData[] = [
     meanTemperature: -200, // °C
     meanLongitude: 304.88003,
     epoch:2451545.0,
+    youtube:"https://www.youtube.com/watch?v=5vL1ZPKFILA",
     color: '#5356EE',
     meanAnomaly:259.91,
     index: 8,
