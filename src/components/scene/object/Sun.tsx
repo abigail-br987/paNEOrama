@@ -11,7 +11,7 @@ const Sun = () => {
             <meshStandardMaterial
                 map={texture}
                 emissive="orange"
-                emissiveIntensity={12}
+                emissiveIntensity={20}
                 emissiveMap={texture}
             />
         </mesh>
