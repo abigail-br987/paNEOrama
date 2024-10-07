@@ -6,11 +6,11 @@ import { useContext } from "react";
 import GlobalStore from "@/lib/context/GlobalStore";
 import classNames from "classnames";
 import Dropdown from "../SmallComponents/Dropdown";
-
 function PrepareTransmission() {
   const [{ favoriteData }] = useContext(GlobalStore);
   const [showPanel, setShowPanel] = useState(false);
   console.log(favoriteData);
+
   return (
     <>
       <PanelThing
@@ -35,27 +35,50 @@ function PrepareTransmission() {
           )}
         >
           <div>
-            <p>Dear X'ÿlK-râ'hn,</p>
-            <p>I have learned a lot in my journey.</p>
-            <p>The Solar System is indeed very interesting!</p>
-            <TitleOptions>My favorite Near Earth Objects:</TitleOptions>
-
-            <CloseButton onClick={() => setShowPanel(false)} />
-          </div>
-
-          <div className="flex flex-col">
-            {favoriteData.map((item) => (
-              <div key={item.spkid} className="py-1">
-                <Dropdown
-                  name={<>- {item.full_name}</>}
-                  options={
-                    <pre className="text-xs">
-                      {JSON.stringify(item, null, 2)}
-                    </pre>
-                  }
-                />
+            {favoriteData.length === 0 ? (
+              <div className="py-2">
+                <p className="opacity-50">Draft of my transmission</p>
+                <p>Dear X'ÿlK-râ'hn,</p>
+                <p>
+                  I am learning a lot in my journey through the Solar System.
+                </p>
+                <p>
+                  There are so many fascinating near-Earth objects (NEOs) that
+                  can teach us about our cosmic neighborhood!
+                </p>
+                <p>
+                  Unfortunately, I don't have any favorite NEOs to share right
+                  now.
+                </p>
               </div>
-            ))}
+            ) : (
+              <>
+                <p>Dear X'ÿlK-râ'hn,</p>
+                <p>
+                  I am learning a lot in my journey through the Solar System.
+                </p>
+                <p>
+                  There are so many fascinating near-Earth objects (NEOs)
+                </p>
+                <TitleOptions>My favorite Near Earth Objects:</TitleOptions>
+
+                <div className="flex flex-col">
+                  {favoriteData.map((item) => (
+                    <div key={item.spkid} className="py-1">
+                      <Dropdown
+                        name={<>- {item.full_name}</>}
+                        options={
+                          <pre className="text-xs">
+                            {JSON.stringify(item, null, 2)}
+                          </pre>
+                        }
+                      />
+                    </div>
+                  ))}
+                </div>
+              </>
+            )}
+            <CloseButton onClick={() => setShowPanel(false)} />
           </div>
         </div>
       </div>
