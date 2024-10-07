@@ -94,7 +94,7 @@ const PlanetControls = ({ positionOfClickedPlanet }: Props) => {
       setRotationAngle((prevAngle) => prevAngle + delta * 0.2);
       const x = targetPosition.x + cameraDistance * Math.cos(rotationAngle);
       const z = targetPosition.z + cameraDistance * Math.sin(rotationAngle);
-      camera.position.set(x, targetPosition.y + 420, z);
+      camera.position.set(x, targetPosition.y + 100, z);
       camera.lookAt(targetPosition);
     }
   });
