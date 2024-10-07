@@ -34,7 +34,7 @@ export const Object = ({
     <mesh position={objectPosition} onClick={handleClick}>
       <Html
         center
-        zIndexRange={[0, 0]}
+        zIndexRange={[1, 1]}
         className="group relative cursor-pointer select-none"
       >
         <span
@@ -43,10 +43,15 @@ export const Object = ({
           onClick={handleClick}
         >
           {labels && (
-            <p className="absolute bottom-5 text-white text-sm rounded-md min-w-24 leading-4 bg-black border border-white text-center -translate-x-1/2 p-2 drop-shadow-md group-hover:drop-shadow-lg transition-all">
+            <p
+              className={`absolute bottom-5 text-white text-sm rounded-md min-w-24 leading-4 bg-black border border-white text-center -translate-x-1/2 p-2 drop-shadow-md group-hover:drop-shadow-lg transition-all`}
+            >
               {name}
             </p>
           )}
+          <span
+            className={`absolute -translate-x-1/2 transition-all -translate-y-1/2 border-2 border-white rounded-full bg-gray-600 w-5 h-5 group-hover:bg-orange-600`}
+          ></span>
         </span>
       </Html>
     </mesh>
