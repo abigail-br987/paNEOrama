@@ -5,12 +5,12 @@ import TitleOptions from "../SmallComponents/TitleOption";
 import { useContext } from "react";
 import GlobalStore from "@/lib/context/GlobalStore";
 import classNames from "classnames";
-import { BsXCircleFill } from "react-icons/bs";
+import Dropdown from "../SmallComponents/Dropdown";
 
 function PrepareTransmission() {
   const [{ favoriteData }] = useContext(GlobalStore);
   const [showPanel, setShowPanel] = useState(false);
-
+  console.log(favoriteData);
   return (
     <>
       <PanelThing
@@ -18,7 +18,7 @@ function PrepareTransmission() {
         onClick={() => setShowPanel(true)}
       >
         <TitleOptions>
-          Objects for transmission {favoriteData.length}
+          Objects for transmission: {favoriteData.length}
         </TitleOptions>
       </PanelThing>
 
@@ -30,30 +30,30 @@ function PrepareTransmission() {
       >
         <div
           className={classNames(
-            "absolute top-1/2 -translate-y-1/2 z-50 border rounded-lg text-sm backdrop-blur-3xl bg-black bg-opacity-60 transition-all py-2 px-4  max-w-4xl",
+            "absolute top-1/2 -translate-y-1/2 z-50 border rounded-lg text-sm backdrop-blur-3xl bg-black bg-opacity-60 transition-all py-2 px-4 max-w-4xl",
             showPanel ? "-translate-x-1/2 left-1/2" : "left-0 -translate-x-full"
           )}
         >
-          <div className="">
-            <p>
-              Dear X'ÿlK-râ'hn {" "}
-            </p>
-            <p>
-              I have learned a lot in my journey.
-            </p>
-            <p>
-              The Solar System is indeed very interesting!
-            </p>
+          <div>
+            <p>Dear X'ÿlK-râ'hn,</p>
+            <p>I have learned a lot in my journey.</p>
+            <p>The Solar System is indeed very interesting!</p>
             <TitleOptions>My favorite Near Earth Objects:</TitleOptions>
 
-            <CloseButton onClick={() => setShowPanel(false)}/>
-
+            <CloseButton onClick={() => setShowPanel(false)} />
           </div>
 
           <div className="flex flex-col">
             {favoriteData.map((item) => (
               <div key={item.spkid} className="py-1">
-                {item.full_name}
+                <Dropdown
+                  name={<>- {item.full_name}</>}
+                  options={
+                    <pre className="text-xs">
+                      {JSON.stringify(item, null, 2)}
+                    </pre>
+                  }
+                />
               </div>
             ))}
           </div>
