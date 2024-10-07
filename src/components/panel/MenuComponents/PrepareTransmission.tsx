@@ -25,25 +25,29 @@ function PrepareTransmission() {
       <div
         className={classNames(
           "w-screen h-screen fixed top-0 left-0 bg-black transition-all",
-          showPanel ? "bg-opacity-40" : "bg-opacity-0 pointer-events-none",
+          showPanel ? "bg-opacity-40" : "bg-opacity-0 pointer-events-none"
         )}
       >
         <div
           className={classNames(
-            "absolute top-1/2 -translate-y-1/2 z-50 border rounded-lg text-sm backdrop-blur-3xl bg-black bg-opacity-60 transition-all py-2 px-4 w-[36rem] max-w-4xl",
-            showPanel
-              ? "-translate-x-1/2 left-1/2"
-              : "left-0 -translate-x-full",
+            "absolute top-1/2 -translate-y-1/2 z-50 border rounded-lg text-sm backdrop-blur-3xl bg-black bg-opacity-60 transition-all py-2 px-4  max-w-4xl",
+            showPanel ? "-translate-x-1/2 left-1/2" : "left-0 -translate-x-full"
           )}
         >
-          <div className="flex justify-between">
-            <TitleOptions>Your favorite objects</TitleOptions>
-            <button
-              className="cursor-pointer text-xl text-white bg-orange-600 p-2 rounded-full"
-              onClick={() => setShowPanel(false)}
-            >
-              <BsXCircleFill />
-            </button>
+          <div className="">
+            <p>
+              Dear X'ÿlK-râ'hn {" "}
+            </p>
+            <p>
+              I have learned a lot in my journey.
+            </p>
+            <p>
+              The Solar System is indeed very interesting!
+            </p>
+            <TitleOptions>My favorite Near Earth Objects:</TitleOptions>
+
+            <CloseButton onClick={() => setShowPanel(false)}/>
+
           </div>
 
           <div className="flex flex-col">
